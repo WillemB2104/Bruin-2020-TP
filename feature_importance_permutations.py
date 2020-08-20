@@ -180,11 +180,3 @@ results = [f for f in files if file_suffix in f]
 print(results)
 for r in results:
     run(r)
-
-# Afterwards perform Bonferroni corr (using statsmodels fdr-tsbh) 2-stage FDR correction (non-negative) for each CV run
-# 1. compute p-values for each of your cv-runs separately for both classifications
-# 2. rank the p-values
-# 3. average the ranks (giving you one average ranking of features per classification task)
-# 4. subtract the ranks between the two classification tasks
-# 5. (data seems normally distributed) find all features which are mean +/- 2*SD ranks different from each other
-# 6. the sign of those will tell you whether they are more important for classification 1 or classification 2
